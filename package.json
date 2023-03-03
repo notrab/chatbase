@@ -1,0 +1,35 @@
+{
+  "name": "grafbase-members-only-guestbook",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.7.9",
+    "@grafbase/apollo-link": "^1.1.0",
+    "@types/node": "18.14.5",
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
+    "eslint": "8.35.0",
+    "eslint-config-next": "13.2.3",
+    "graphql": "^16.6.0",
+    "jsonwebtoken": "^9.0.0",
+    "next": "13.2.3",
+    "next-auth": "^4.20.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-intersection-observer": "^9.4.3",
+    "typescript": "4.9.5",
+    "use-sound": "^4.0.1"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.1",
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.7"
+  }
+}

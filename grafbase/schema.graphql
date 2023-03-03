@@ -1,0 +1,20 @@
+schema
+  @auth(
+    providers: [
+      {
+        type: jwt
+        issuer: "{{ env.GRAFBASE_ISSUER_URL }}"
+        secret: "{{ env.NEXTAUTH_SECRET }}"
+      }
+    ]
+    rules: [{ allow: private }]
+  ) {
+  query: Query
+}
+
+type Message @model {
+  username: String!
+  avatar: URL
+  body: String!
+  likes: Int @default(value: 0)
+}
