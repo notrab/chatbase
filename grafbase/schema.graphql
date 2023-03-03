@@ -3,7 +3,7 @@ schema
     providers: [
       {
         type: jwt
-        issuer: "{{ env.GRAFBASE_ISSUER_URL }}"
+        issuer: "{{ env.ISSUER_URL }}"
         secret: "{{ env.NEXTAUTH_SECRET }}"
       }
     ]
