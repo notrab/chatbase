@@ -1,4 +1,5 @@
 import { useSession } from "next-auth/react";
+import Image from "next/image";
 
 // import { Like } from "./like";
 
@@ -28,7 +29,12 @@ export const Message = ({ message }: Props) => {
     >
       {message?.avatar && (
         <div className="w-12 h-12 overflow-hidden flex-shrink-0 rounded">
-          <img src={message.avatar} alt={message.username} />
+          <Image
+            width={50}
+            height={50}
+            src={message.avatar}
+            alt={message.username}
+          />
         </div>
       )}
       <span
