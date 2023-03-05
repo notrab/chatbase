@@ -46,7 +46,7 @@ export const MessageList = () => {
   if (loading)
     return (
       <div className="h-full flex items-center justify-center">
-        <Spinner className="w-5 h-5 text-white" />
+        <p className="text-white">Fetching most recent chat messages.</p>
       </div>
     );
 
@@ -56,7 +56,7 @@ export const MessageList = () => {
     );
 
   return (
-    <div className="flex flex-col space-y-3 overflow-y-scroll">
+    <div className="flex flex-col space-y-3 overflow-y-scroll w-full">
       {!inView && (
         <div className="py-1.5 w-full px-3 z-10 text-xs absolute flex justify-center bottom-0 mb-[120px] inset-x-0">
           <button
