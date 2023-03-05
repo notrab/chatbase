@@ -23,8 +23,6 @@ export const NewMessageForm = () => {
     onCompleted: () => play(),
   });
 
-  console.log({ session });
-
   return (
     <form
       onSubmit={(e) => {

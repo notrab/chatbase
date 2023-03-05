@@ -37,14 +37,11 @@ export const MessageList = () => {
     },
   });
 
-  const scrollIntoView = () =>
-    entry?.target?.scrollIntoView({ behavior: "auto" });
-
   useEffect(() => {
     if (inView) {
-      scrollIntoView();
+      entry?.target?.scrollIntoView({ behavior: "auto" });
     }
-  }, [data, inView]);
+  }, [data, entry, inView]);
 
   if (loading)
     return (
@@ -61,10 +58,10 @@ export const MessageList = () => {
   return (
     <div className="flex flex-col space-y-3 overflow-y-scroll">
       {!inView && (
-        <div className="py-1.5 w-full px-3 text-xs absolute flex justify-center bottom-0 mb-[120px] inset-x-0">
+        <div className="py-1.5 w-full px-3 z-10 text-xs absolute flex justify-center bottom-0 mb-[120px] inset-x-0">
           <button
             className="py-1.5 px-3 text-xs bg-[#1c1c1f] border border-[#363739] rounded-full text-white font-medium"
-            onClick={() => scrollIntoView()}
+            onClick={() => entry?.target?.scrollIntoView({ behavior: "auto" })}
           >
             Scroll to see latest messages
           </button>

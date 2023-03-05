@@ -5,7 +5,7 @@ export function Header() {
   const { data: session } = useSession();
 
   return (
-    <header className="bg-[#131316] p-6 border-b border-[#363739]">
+    <header className="p-6 bg-white/5 border-b border-[#363739]">
       <div className="max-w-4xl mx-auto">
         <div className="flex justify-between items-center">
           <p className="inline-flex items-center space-x-3">
@@ -30,9 +30,9 @@ export function Header() {
             <span className="text-white font-bold text-xl">Chatbase</span>
           </p>
           {session ? (
-            <div className="flex">
+            <div className="flex space-x-1">
               {session?.user?.image && (
-                <div className="w-12 h-12 rounded-l overflow-hidden">
+                <div className="w-12 h-12 rounded overflow-hidden">
                   <Image
                     width={50}
                     height={50}
@@ -43,7 +43,7 @@ export function Header() {
               )}
               <button
                 onClick={() => signOut()}
-                className="bg-white/5 rounded-r h-12 px-6 font-medium text-white border border-transparent"
+                className="bg-white/5 rounded h-12 px-6 font-medium text-white border border-transparent"
               >
                 Sign out
               </button>

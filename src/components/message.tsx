@@ -1,8 +1,6 @@
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 
-// import { Like } from "./like";
-
 export type Message = {
   id: string;
   username: string;
@@ -22,8 +20,8 @@ export const Message = ({ message }: Props) => {
   return (
     <div
       className={`flex relative space-x-1 ${
-        message.username === session?.user?.username
-          ? "flex-row-reverse"
+        message.username === session?.username
+          ? "flex-row-reverse space-x-reverse"
           : "flex-row"
       }`}
     >
@@ -38,8 +36,8 @@ export const Message = ({ message }: Props) => {
         </div>
       )}
       <span
-        className={`inline-flex rounded space-x-2 items-center p-3 text-white ${
-          message.username === session?.user?.username
+        className={`inline-flex rounded space-x-2 items-start p-3 text-white ${
+          message.username === session?.username
             ? "bg-[#4a9c6d]"
             : "bg-[#363739]"
         } `}
@@ -49,7 +47,6 @@ export const Message = ({ message }: Props) => {
         )}
         {message.body}
       </span>
-      {/* <Like likes={message.likes} messageId={message.id} /> */}
     </div>
   );
 };

@@ -8,26 +8,32 @@ export default function Home() {
   const { data: session } = useSession();
 
   return (
-    <div className="flex flex-col">
+    <div
+      className="flex flex-col bg-cover"
+      style={{ backgroundImage: "url(/bg.png)" }}
+    >
       <Header />
       {session ? (
         <>
-          <div className="flex-1 overflow-y-scroll p-6 bg-[#131316]">
+          <div className="flex-1 overflow-y-scroll p-6">
             <div className="max-w-4xl mx-auto">
               <div className="flex justify-between items-center">
-                {/* <pre className="text-white">{JSON.stringify(session, null, 2)}</pre> */}
                 <MessageList />
               </div>
             </div>
           </div>
-          <div className="p-6 bg-[#1c1c1f] border-t border-[#363739]">
+          <div className="p-6 bg-white/5 border-t border-[#363739]">
             <div className="max-w-4xl mx-auto">
               <NewMessageForm />
             </div>
           </div>
         </>
       ) : (
-        <button onClick={() => signIn("github")}>Sign in with GitHub</button>
+        <div className="h-full flex items-center justify-center">
+          <p className="text-lg md:text-2xl text-white">
+            Sign in to join the chat!
+          </p>
+        </div>
       )}
     </div>
   );
