@@ -4,7 +4,6 @@ import jsonwebtoken from "jsonwebtoken";
 import { JWT } from "next-auth/jwt";
 
 export const authOptions: NextAuthOptions = {
-  debug: true,
   providers: [
     GitHubProvider({
       clientId: process.env.GITHUB_CLIENT_ID!,

@@ -4,7 +4,6 @@ import { useInView } from "react-intersection-observer";
 
 import type { Message as IMessage } from "@/components/message";
 import { Message } from "@/components/message";
-import { Spinner } from "@/components/spinner";
 
 const GetRecentMessagesQuery = gql`
   query GetRecentMessages($last: Int) @live {
