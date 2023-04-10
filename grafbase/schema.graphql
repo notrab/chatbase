@@ -1,11 +1,7 @@
 schema
   @auth(
     providers: [
-      {
-        type: jwt
-        issuer: "{{ env.ISSUER_URL }}"
-        secret: "{{ env.NEXTAUTH_SECRET }}"
-      }
+      { type: jwt, issuer: "nextauth", secret: "{{ env.NEXTAUTH_SECRET }}" }
     ]
     rules: [{ allow: private }]
   ) {

@@ -16,7 +16,7 @@ export const authOptions: NextAuthOptions = {
       jsonwebtoken.sign(
         {
           ...token,
-          iss: process.env.ISSUER_URL,
+          iss: "nextauth",
           exp: Math.floor(Date.now() / 1000) + 60 * 60 * 60,
         },
         secret
