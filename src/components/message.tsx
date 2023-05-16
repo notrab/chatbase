@@ -57,9 +57,7 @@ export const Message = ({ message }: Props) => {
           {message.username !== session?.username && (
             <span className="font-bold">{message.username}:&nbsp;</span>
           )}
-          <div className="space-y-1">
-            <p className="max-w-sm">{message.body}</p>
-          </div>
+          <span className="max-w-sm">{message.body}</span>
         </span>
       </div>
       <p className="text-xs text-white/50">
