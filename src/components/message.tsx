@@ -1,3 +1,4 @@
+import { formatRelative } from "date-fns";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 
@@ -27,12 +28,19 @@ export const Message = ({ message }: Props) => {
     >
       {message?.avatar && (
         <div className="w-12 h-12 overflow-hidden flex-shrink-0 rounded">
-          <Image
-            width={50}
-            height={50}
-            src={message.avatar}
-            alt={message.username}
-          />
+          <a
+            href={`https://github.com/${message.username}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              width={50}
+              height={50}
+              src={message.avatar}
+              alt={message.username}
+              title={message.username}
+            />
+          </a>
         </div>
       )}
       <span
@@ -45,7 +53,12 @@ export const Message = ({ message }: Props) => {
         {message.username !== session?.username && (
           <span className="font-bold">{message.username}:&nbsp;</span>
         )}
-        {message.body}
+        <div className="space-y-1">
+          <p className="max-w-sm">{message.body}</p>
+          <p className="text-xs text-white/50">
+            {formatRelative(new Date(message.createdAt), new Date())}
+          </p>
+        </div>
       </span>
     </div>
   );

@@ -52,7 +52,7 @@ export const NewMessageForm = () => {
       />
       <button
         type="submit"
-        className="bg-[#222226] rounded h-12 font-medium text-white w-24 text-lg border border-transparent"
+        className="bg-[#222226] rounded h-12 font-medium text-white w-24 text-lg border border-transparent hover:bg-[#363739] transition"
         disabled={!body || !session}
       >
         Send
