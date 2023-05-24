@@ -13,4 +13,5 @@ type Message @model {
   avatar: URL
   body: String!
   likes: Int @default(value: 0)
+  notes: String
 }
