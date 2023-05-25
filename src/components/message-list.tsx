@@ -25,7 +25,7 @@ const GetRecentMessagesQuery = gql`
 export const MessageList = () => {
   const [scrollRef, inView, entry] = useInView({
     trackVisibility: true,
-    delay: 500,
+    delay: 1000,
   });
 
   const { loading, error, data } = useQuery<{
@@ -37,7 +37,7 @@ export const MessageList = () => {
   });
 
   useEffect(() => {
-    if (inView) {
+    if (!inView) {
       entry?.target?.scrollIntoView({ behavior: "auto" });
     }
   }, [data, entry, inView]);
@@ -55,8 +55,8 @@ export const MessageList = () => {
     );
 
   return (
-    <div className="flex flex-col space-y-3 overflow-y-scroll w-full">
-      {!inView && (
+    <div className="flex flex-col space-y-3 overflow-y-scroll no-scrollbar w-full">
+      {!inView && data && (
         <div className="py-1.5 w-full px-3 z-10 text-xs absolute flex justify-center bottom-0 mb-[120px] inset-x-0">
           <button
             className="py-1.5 px-3 text-xs bg-[#1c1c1f] border border-[#363739] rounded-full text-white font-medium"
