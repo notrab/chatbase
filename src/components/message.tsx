@@ -1,4 +1,4 @@
-import { formatRelative } from "date-fns";
+import { formatRelative, formatDistance, differenceInHours } from "date-fns";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 
@@ -61,7 +61,11 @@ export const Message = ({ message }: Props) => {
         </span>
       </div>
       <p className="text-xs text-white/50">
-        {formatRelative(new Date(message.createdAt), new Date())}
+        {differenceInHours(new Date(), new Date(message.createdAt)) >= 1
+          ? formatRelative(new Date(message.createdAt), new Date())
+          : formatDistance(new Date(message.createdAt), new Date(), {
+              addSuffix: true,
+            })}
       </p>
     </div>
   );
