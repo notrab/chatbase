@@ -37,14 +37,14 @@ export const MessageList = () => {
   });
 
   useEffect(() => {
-    if (!inView) {
-      entry?.target?.scrollIntoView({ behavior: "auto" });
+    if (entry?.target) {
+      entry.target.scrollIntoView({ behavior: "smooth", block: "end" });
     }
-  }, [data, entry, inView]);
+  }, [data?.messageCollection.edges.length, entry?.target]);
 
   if (loading)
     return (
-      <div className="h-full flex items-center justify-center">
+      <div className="flex items-center justify-center h-full">
         <p className="text-white">Fetching most recent chat messages.</p>
       </div>
     );
@@ -55,12 +55,14 @@ export const MessageList = () => {
     );
 
   return (
-    <div className="flex flex-col space-y-3 overflow-y-scroll no-scrollbar w-full">
-      {!inView && data && (
+    <div className="flex flex-col w-full space-y-3 overflow-y-scroll no-scrollbar">
+      {!inView && data?.messageCollection.edges.length && (
         <div className="py-1.5 w-full px-3 z-10 text-xs absolute flex justify-center bottom-0 mb-[120px] inset-x-0">
           <button
             className="py-1.5 px-3 text-xs bg-[#1c1c1f] border border-[#363739] rounded-full text-white font-medium"
-            onClick={() => entry?.target?.scrollIntoView({ behavior: "auto" })}
+            onClick={() => {
+              entry?.target.scrollIntoView({ behavior: "smooth", block: "end" })
+            }}
           >
             Scroll to see latest messages
           </button>
